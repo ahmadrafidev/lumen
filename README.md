@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lumen
 
-## Getting Started
+Lumen is a powerful yet simple web app designed to help designers and developers ensure their color choices meet accessibility standards. By providing tools to calculate contrast ratios, simulate color blindness, and offer improvement suggestions, Lumen makes it easy to create accessible, inclusive designs.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. [Overview](#overview)
+2. [Core Features](#core-features)
+3. [Additional Features](#additional-features)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Lumen enables designers and developers to assess and improve the accessibility of their color choices. With a focus on meeting Web Content Accessibility Guidelines (WCAG) standards, the app provides valuable insights for creating color combinations that are readable and inclusive for all users.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Core Features
 
-## Learn More
+### Input Color Selection
+- **Multiple Input Options**: Enter color values by:
+  - Typing hex codes.
+  - Using a color picker.
+  - Inputting RGB or HSL values.
+  
+### Contrast Ratio Calculation
+- **WCAG Compliance**: Calculates the contrast ratio between two colors based on WCAG guidelines, with results for:
+  - **AA Level**: Minimum 4.5:1 for normal text, 3:1 for large text.
+  - **AAA Level**: Minimum 7:1 for normal text, 4.5:1 for large text.
 
-To learn more about Next.js, take a look at the following resources:
+### Accessibility Pass/Fail Feedback
+- **Feedback Indicators**: Displays whether the selected color combination meets AA or AAA standards.
+  - Uses visual indicators (e.g., checkmarks or red X's) for quick, intuitive feedback.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Suggestions for Improved Contrast
+- **Color Adjustment Suggestions**: If a combination fails, suggests lighter or darker shades to meet contrast standards.
+- **Automatic Recalculation**: Automatically recalculates contrast for suggested colors, ensuring compliance.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Color Blindness Simulation
+- **Simulate Color Blindness**: Preview how colors appear to users with common types of color blindness (e.g., protanopia, deuteranopia).
+- **Enhanced Inclusivity**: Ensures color choices are distinguishable for all audiences.
 
-## Deploy on Vercel
+## Additional Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Real-time Preview
+- **Sample Text Display**: View a live preview of text with selected colors, simulating a real webpage or mobile screen.
+- **Text Size Toggle**: Test contrast across different text sizes to see if it holds up in various contexts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### WCAG Guidelines and Tips
+- **Educational Resource**: Provides an overview of WCAG contrast guidelines and explains the importance of color contrast in accessible design.
+
+
