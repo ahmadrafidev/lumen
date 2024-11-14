@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lumen",
-  description: "Fast, accessible color checks for designers",
+  title: "Lumen - Fast, Accessible Color Checks",
+  description: "Lumen is a powerful yet simple web app designed to help designers and developers ensure their color choices meet accessibility standards",
 };
 
 export default function RootLayout({

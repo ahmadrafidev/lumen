@@ -1,8 +1,17 @@
+'use client'
+
+import { useState } from "react";
+
+import { HexColorPicker } from "react-colorful";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function HomePage() {
+  const [foregroundColor, setForegroundColor] = useState("#000000");
+  const [backgroundColor, setBackgroundColor] = useState("#000000");
+
   return (
     <div className="w-full">
       <main>
@@ -16,7 +25,13 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <Label>Hex Value</Label>
-                <Input placeholder="#000000"/>
+                <Input
+                  value={foregroundColor}
+                  onChange={(e) => setForegroundColor(e.target.value)}
+                  placeholder="#000000"
+                  className="mb-4"
+                />
+                <HexColorPicker color={foregroundColor} onChange={setForegroundColor} />
               </CardContent>
             </Card>
             <Card>
@@ -25,7 +40,13 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <Label>Hex Value</Label>
-                <Input placeholder="#000000"/>
+                <Input
+                  value={backgroundColor}
+                  onChange={(e) => setBackgroundColor(e.target.value)}
+                  placeholder="#000000"
+                  className="mb-4"
+                />
+                <HexColorPicker color={backgroundColor} onChange={setBackgroundColor} />
               </CardContent>
             </Card>
             <Card className="col-span-2">
