@@ -9,7 +9,7 @@ export default function Home() {
         <Header />
       </div>
       <section className="container max-w-5xl mx-auto p-4 space-y-6 flex-grow">
-        <div className="grid grid-cols-2 gap-4 my-6">
+        <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col text-justify">
             <h2 className="text-lg text-gray-700 font-semibold tracking-tight">
               About Lumen
