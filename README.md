@@ -7,6 +7,7 @@ Lumen is a powerful yet simple web app designed to help designers and developers
 1. [Overview](#overview)
 2. [Core Features](#core-features)
 3. [Additional Features](#additional-features)
+4. [References](#references)
 
 ## Overview
 
@@ -45,5 +46,10 @@ Lumen enables designers and developers to assess and improve the accessibility o
 
 ### WCAG Guidelines and Tips
 - **Educational Resource**: Provides an overview of WCAG contrast guidelines and explains the importance of color contrast in accessible design.
+
+## References
+
+1. [How Accessible Is My Website?](https://webaim.org/services/evaluation/)
+2. [WebAIM's WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist)
 
 
