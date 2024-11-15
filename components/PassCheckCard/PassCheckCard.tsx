@@ -1,9 +1,11 @@
 import Link from 'next/link';
+
+import { Info } from 'lucide-react';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
-import { Info } from 'lucide-react';
 
 const PassCheckCard = () => {
   const sections = [
@@ -49,7 +51,7 @@ const PassCheckCard = () => {
     },
   ];
 
-  const renderStatus = (status) => {
+  const renderStatus = (status: string) => {
     const baseClass =
       "px-4 py-2 rounded-md text-center text-sm min-w-[60px]"; 
     if (status === "pass") {
