@@ -1,6 +1,9 @@
 import React from "react";
+
 import Link from "next/link";
+
 import { Info } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
@@ -92,8 +95,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
             <Info className="h-5 w-5 text-blue-500" />
             <AlertTitle>About WCAG Compliance</AlertTitle>
             <AlertDescription>
-              WCAG guidelines ensure web content is accessible to people with disabilities. 
-              AA compliance is required for most websites, while AAA represents the highest level of accessibility.
+              WCAG guidelines make websites accessible to everyone, with AA being the standard level and AAA the highest.
             </AlertDescription>
             <div>
               <Link
@@ -103,7 +105,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
                 rel="noopener noreferrer"
                 className="text-blue-500 underline hover:text-blue-700 text-sm"
               >
-                Read More
+                Learn More
               </Link>
             </div>
           </Alert>
