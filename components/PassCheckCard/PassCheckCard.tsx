@@ -1,9 +1,6 @@
 import React from "react";
-
 import Link from "next/link";
-
 import { Info } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
@@ -87,7 +84,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
   };
 
   return (
-    <Card>
+    <Card className="col-span-2">
       <CardHeader>
         <CardTitle className="text-center mb-4">Accessibility Compliance Check</CardTitle>
         <div className="space-y-4">

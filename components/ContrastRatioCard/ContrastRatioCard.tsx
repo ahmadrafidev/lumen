@@ -1,9 +1,6 @@
 import React from "react";
-
 import { AlertCircle, CheckCircle, XCircle } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { calculateContrastRatio } from "@/utils/colorUtils";
 
 interface ContrastRatioCardProps {
@@ -72,10 +69,10 @@ const ContrastRatioCard: React.FC<ContrastRatioCardProps> = ({
             </div>
           </div>
         </div>
-        
+
         <div className="space-y-2">
           <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500"
               style={{
                 width: `${Math.min(100, (ratio / 7) * 100)}%`,

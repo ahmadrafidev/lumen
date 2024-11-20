@@ -25,7 +25,6 @@ export const calculateLuminance = (color: string): number => {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 };
 
-
 /**
  * Calculate contrast ratio between two colors
  * @param foreground - The hex color code of the foreground (e.g., "#000000")
