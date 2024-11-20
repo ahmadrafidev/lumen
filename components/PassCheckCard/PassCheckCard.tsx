@@ -1,26 +1,33 @@
-import Link from 'next/link';
-
-import { Info } from 'lucide-react';
-
+import React from "react";
+import Link from "next/link";
+import { Info } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
 
-const PassCheckCard = () => {
+interface PassCheckCardProps {
+  contrastRatio: number;
+}
+
+const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
   const sections = [
     {
       title: "Normal Text",
       checks: [
         {
           level: "AA",
-          status: "pass",
-          details: "Meets contrast requirements.",
+          status: contrastRatio >= 4.5 ? "pass" : "fail",
+          details: contrastRatio >= 4.5
+            ? "Meets contrast requirements."
+            : "Insufficient contrast ratio.",
         },
         {
           level: "AAA",
-          status: "fail",
-          details: "Insufficient contrast ratio.",
+          status: contrastRatio >= 7 ? "pass" : "fail",
+          details: contrastRatio >= 7
+            ? "Meets contrast requirements."
+            : "Insufficient contrast ratio.",
         },
       ],
     },
@@ -29,13 +36,17 @@ const PassCheckCard = () => {
       checks: [
         {
           level: "AA",
-          status: "pass",
-          details: "Meets contrast requirements.",
+          status: contrastRatio >= 3 ? "pass" : "fail",
+          details: contrastRatio >= 3
+            ? "Meets contrast requirements."
+            : "Insufficient contrast ratio.",
         },
         {
           level: "AAA",
-          status: "fail",
-          details: "Insufficient contrast ratio.",
+          status: contrastRatio >= 4.5 ? "pass" : "fail",
+          details: contrastRatio >= 4.5
+            ? "Meets contrast requirements."
+            : "Insufficient contrast ratio.",
         },
       ],
     },
@@ -44,8 +55,10 @@ const PassCheckCard = () => {
       checks: [
         {
           level: "AA",
-          status: "pass",
-          details: "Meets contrast requirements.",
+          status: contrastRatio >= 3 ? "pass" : "fail",
+          details: contrastRatio >= 3
+            ? "Meets contrast requirements."
+            : "Insufficient contrast ratio.",
         },
       ],
     },
@@ -53,7 +66,7 @@ const PassCheckCard = () => {
 
   const renderStatus = (status: string) => {
     const baseClass =
-      "px-4 py-2 rounded-md text-center text-sm min-w-[60px]"; 
+      "px-4 py-2 rounded-md text-center text-sm min-w-[60px]";
     if (status === "pass") {
       return (
         <div className="flex items-center gap-2">
@@ -69,7 +82,7 @@ const PassCheckCard = () => {
       </div>
     );
   };
-  
+
   return (
     <Card>
       <CardHeader>
@@ -83,9 +96,9 @@ const PassCheckCard = () => {
               AA compliance is required for most websites, while AAA represents the highest level of accessibility.
             </AlertDescription>
             <div>
-              <Link 
-                href="https://www.wcag.com/resource/what-is-wcag/" 
-                target="_blank" 
+              <Link
+                href="https://www.wcag.com/resource/what-is-wcag/"
+                target="_blank"
                 passHref
                 rel="noopener noreferrer"
                 className="text-blue-500 underline hover:text-blue-700 text-sm"

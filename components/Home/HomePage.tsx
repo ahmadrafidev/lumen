@@ -8,9 +8,13 @@ import ContrastRatioCard from "../ContrastRatioCard/ContrastRatioCard";
 import PassCheckCard from "../PassCheckCard/PassCheckCard";
 import SuggestionImprovementCard from "../SuggestionImprovementCard/SuggestionImprovementCard";
 
+import { calculateContrastRatio } from "@/utils/colorUtils";
+
 export default function HomePage() {
   const [foregroundColor, setForegroundColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#000000");
+
+  const contrastRatio = calculateContrastRatio(foregroundColor, backgroundColor);
 
   return (
     <div className="w-full">
@@ -19,9 +23,17 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4">
             <ForegroundCard color={foregroundColor} onChange={setForegroundColor} />
             <BackgroundCard color={backgroundColor} onChange={setBackgroundColor} />
-            <ContrastRatioCard />
-            <PassCheckCard />
-            <SuggestionImprovementCard />
+            <ContrastRatioCard
+              foreground={foregroundColor}
+              background={backgroundColor}
+            />
+            <PassCheckCard contrastRatio={contrastRatio} />
+            <SuggestionImprovementCard
+              currentColors={{
+                fg: foregroundColor,
+                bg: backgroundColor,
+              }}
+            />
           </div>
         </div>
       </main>
