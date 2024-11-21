@@ -23,9 +23,8 @@ export default function Home() {
               How it works?
             </h2>
             <p className="text-gray-600">
-              Lumen checks if two colors have enough contrast for accessibility. 
-              Enter hex codes or pick colors to see if they meet WCAG standards. 
-              If they do not pass, Lumen suggests adjustments to make your design more readable.
+              Lumen analyzes the contrast between two colors to determine if they meet the accessibility requirements outlined in WCAG standards. 
+              Simply input hex codes or select colors, and Lumen will evaluate whether your design achieves the recommended contrast ratio for readability and inclusivity.
             </p>
           </div>
         </div>
