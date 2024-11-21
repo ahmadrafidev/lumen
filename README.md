@@ -46,5 +46,3 @@ Lumen enables designers and developers to check the contrast between two colors 
 1. [How Accessible Is My Website?](https://webaim.org/services/evaluation/)
 2. [WebAIM's WCAG 2 Checklist](https://webaim.org/standards/wcag/checklist)
 3. [WCAG 2 Overview](https://www.w3.org/WAI/standards-guidelines/wcag/)
-
-
