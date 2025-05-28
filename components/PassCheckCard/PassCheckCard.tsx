@@ -1,10 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Info } from "lucide-react";
+import { Info, CheckCircle2, XCircle, Shield, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Separator } from "@/components/ui/separator";
-import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
 
 interface PassCheckCardProps {
   contrastRatio: number;
@@ -14,6 +12,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
   const sections = [
     {
       title: "Normal Text",
+      icon: "📝",
       checks: [
         {
           level: "AA",
@@ -21,6 +20,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
           details: contrastRatio >= 4.5
             ? "Meets contrast requirements."
             : "Insufficient contrast ratio.",
+          required: 4.5,
         },
         {
           level: "AAA",
@@ -28,11 +28,13 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
           details: contrastRatio >= 7
             ? "Meets contrast requirements."
             : "Insufficient contrast ratio.",
+          required: 7,
         },
       ],
     },
     {
       title: "Large Text",
+      icon: "🔤",
       checks: [
         {
           level: "AA",
@@ -40,6 +42,7 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
           details: contrastRatio >= 3
             ? "Meets contrast requirements."
             : "Insufficient contrast ratio.",
+          required: 3,
         },
         {
           level: "AAA",
@@ -47,11 +50,13 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
           details: contrastRatio >= 4.5
             ? "Meets contrast requirements."
             : "Insufficient contrast ratio.",
+          required: 4.5,
         },
       ],
     },
     {
-      title: "Graphical Objects and User Interface Components",
+      title: "UI Components",
+      icon: "🎨",
       checks: [
         {
           level: "AA",
@@ -59,89 +64,116 @@ const PassCheckCard: React.FC<PassCheckCardProps> = ({ contrastRatio }) => {
           details: contrastRatio >= 3
             ? "Meets contrast requirements."
             : "Insufficient contrast ratio.",
+          required: 3,
         },
       ],
     },
   ];
 
   const renderStatus = (status: string) => {
-    const baseClass =
-      "px-4 py-2 rounded-md text-center text-sm min-w-[60px]";
     if (status === "pass") {
       return (
         <div className="flex items-center gap-2">
-          <Label className={`${baseClass} bg-green-200 text-green-900`}>
+          <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+          <Badge variant="secondary" className="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800">
             Pass
-          </Label>
+          </Badge>
         </div>
       );
     }
     return (
       <div className="flex items-center gap-2">
-        <Label className={`${baseClass} bg-red-100 text-red-900`}>Fail</Label>
+        <XCircle className="w-4 h-4 text-red-500" />
+        <Badge variant="secondary" className="bg-red-50 dark:bg-red-950/50 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800">
+          Fail
+        </Badge>
       </div>
     );
   };
 
   return (
-    <Card className="col-span-2">
-      <CardHeader>
-        <CardTitle className="text-center mb-4">Accessibility Compliance Check</CardTitle>
-        <div className="space-y-4">
-          <Alert className="bg-blue-50 border-blue-200">
-            <Info className="h-5 w-5 text-blue-500" />
-            <AlertTitle>About WCAG Compliance</AlertTitle>
-            <AlertDescription>
-              WCAG guidelines make websites accessible to everyone, with AA being the standard level and AAA the highest.
-            </AlertDescription>
-            <div>
-              <Link
-                href="https://www.wcag.com/resource/what-is-wcag/"
-                target="_blank"
-                passHref
-                rel="noopener noreferrer"
-                className="text-blue-500 underline hover:text-blue-700 text-sm"
-              >
-                Learn More
-              </Link>
+    <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-slate-200/60 dark:border-slate-800/60 shadow-sm hover:shadow-md dark:hover:shadow-slate-900/50 transition-all duration-300">
+      <CardHeader className="pb-6">
+        <div className="flex flex-col space-y-4">
+          {/* Main Title */}
+          <CardTitle className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-slate-200 flex items-center justify-center">
+            <Shield className="w-5 h-5 mr-3 text-slate-600 dark:text-slate-400" />
+            Accessibility Compliance
+          </CardTitle>
+          
+          {/* Info Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 bg-blue-50/80 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-800/40 rounded-xl">
+            <div className="flex items-start gap-3">
+              <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-blue-800 dark:text-blue-200 text-sm mb-1">
+                  WCAG Accessibility Standards
+                </h4>
+                <p className="text-blue-700 dark:text-blue-300 text-sm leading-relaxed">
+                  These guidelines ensure your designs are accessible to users with visual impairments. 
+                  AA is the standard level, AAA provides enhanced accessibility.
+                </p>
+              </div>
             </div>
-          </Alert>
+            <Link
+              href="https://www.wcag.com/resource/what-is-wcag/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white text-sm font-medium rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200 flex-shrink-0"
+            >
+              Learn More
+              <ExternalLink className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {sections.map((section, index) => (
-          <div key={index} className="space-y-4">
-            <h2 className="font-semibold text-xl tracking-normal">
-              {section.title}
-            </h2>
-            <Separator />
-            <div className="space-y-2">
-              {section.checks.map((check, checkIndex) => (
-                <div
-                  key={checkIndex}
-                  className="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg shadow-sm"
-                >
-                  <div>
-                    <h6 className="font-medium text-gray-800">
-                      WCAG {check.level}
-                    </h6>
-                    <p className="text-sm text-gray-600">{check.details}</p>
+      
+      <CardContent>
+        {/* Horizontal Layout for Sections */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {sections.map((section, index) => (
+            <div key={index} className="space-y-4">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
+                <span className="text-lg">{section.icon}</span>
+                <h3 className="font-semibold text-lg text-slate-800 dark:text-slate-200">
+                  {section.title}
+                </h3>
+              </div>
+              
+              <div className="space-y-3">
+                {section.checks.map((check, checkIndex) => (
+                  <div
+                    key={checkIndex}
+                    className="bg-slate-50/50 dark:bg-slate-800/50 backdrop-blur-sm px-4 py-3 rounded-xl border border-slate-200/60 dark:border-slate-700/60 hover:bg-slate-50/80 dark:hover:bg-slate-800/80 transition-all duration-200"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium text-slate-800 dark:text-slate-200 text-sm">
+                          WCAG {check.level}
+                        </h4>
+                        <span className="text-xs text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">
+                          {check.required}:1
+                        </span>
+                      </div>
+                      {renderStatus(check.status)}
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{check.details}</p>
                   </div>
-                  {renderStatus(check.status)}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-        <div className="pt-3 border-t">
-          <div className="flex gap-4 text-sm text-gray-600">
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span>Passing</span>
+          ))}
+        </div>
+        
+        <div className="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-700/60">
+          <div className="flex justify-center gap-8 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              <span className="text-slate-600 dark:text-slate-400">Passing</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <span>Needs Improvement</span>
+              <span className="text-slate-600 dark:text-slate-400">Needs Improvement</span>
             </div>
           </div>
         </div>
