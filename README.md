@@ -1,7 +1,7 @@
 # Lumen
 
 <div align="center">
-  <img src="Screenshot 2024-11-21 at 15.47.50.png" alt="Lumen Overview" width="800" style="border-radius: 8px; margin: 20px 0;" />
+  <img src="/public/images/landing-page.png" alt="Lumen Overview" width="800" style="border-radius: 8px; margin: 20px 0;" />
   
   **A modern, intuitive color accessibility checker built with Next.js**
   
