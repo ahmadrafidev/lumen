@@ -37,7 +37,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Tool Grid */}
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
+      <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8">
         <div className="space-y-6">
           <ForegroundCard
             color={foregroundColor}
