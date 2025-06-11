@@ -26,15 +26,6 @@ export default function HomePage() {
 
   return (
     <div className="w-full">
-      {/* Tool Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-xl md:text-3xl tracking-tight font-semibold text-slate-800 dark:text-slate-200 mb-2">
-          Contrast Ratio Checker
-        </h2>
-        <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Test your color combinations to ensure they meet WCAG accessibility guidelines
-        </p>
-      </div>
 
       {/* Main Tool Grid */}
       <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8">
